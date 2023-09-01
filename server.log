@@ -1,0 +1,8 @@
+/var/lib/gems/2.7.0/gems/railties-7.0.7.2/lib/rails/app_loader.rb:46:in `pwd': No such file or directory - getcwd (Errno::ENOENT)
+	from /var/lib/gems/2.7.0/gems/railties-7.0.7.2/lib/rails/app_loader.rb:46:in `exec_app'
+	from /var/lib/gems/2.7.0/gems/railties-7.0.7.2/lib/rails/cli.rb:7:in `<top (required)>'
+	from /usr/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:72:in `require'
+	from /usr/lib/ruby/2.7.0/rubygems/core_ext/kernel_require.rb:72:in `require'
+	from /var/lib/gems/2.7.0/gems/railties-7.0.7.2/exe/rails:10:in `<top (required)>'
+	from /usr/local/bin/rails:23:in `load'
+	from /usr/local/bin/rails:23:in `<main>'

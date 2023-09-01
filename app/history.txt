@@ -1,0 +1,1000 @@
+ 1121  bin/kafka-console-producer.sh --bootstrap-server 13.235.247.39:30900 --topic my-topic
+ 1122  bin/kafka-console-consumer.sh --bootstrap-server 13.235.247.39:30900 --topic my-topic --from-beginning
+ 1123  sudo apt install lsb-release curl gpg
+ 1124  clear
+ 1125  curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+ 1126  echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+ 1127  sudo apt-get update
+ 1128  sudo apt-get install redis
+ 1129  clear
+ 1130  redis-cli ping
+ 1131  redis-server
+ 1132  redis-cli ping
+ 1133  clear
+ 1134  redis-cli ping
+ 1135  redis-cli --help
+ 1136  clear
+ 1137  redis-cli save
+ 1138  set test
+ 1139  get test
+ 1140  redis-cli set test
+ 1141  redis-cli set test 123
+ 1142  redis-cli get test 
+ 1143  redis-cli shutdown
+ 1144  redis-cli get test
+ 1145  docker run --name redis-test -dit -p 6379:6379 redis
+ 1146  docker ps
+ 1147  redis-cli -h localhost -p 6379
+ 1148  ping localhost:6379
+ 1149  ping http://127.0.0.1/:6379
+ 1150  ping 127.0.0.1/:6379
+ 1151  redis-cli -h http://127.0.0.1/ -p 6379
+ 1152  redis-cli -h 127.0.0.1 -p 6379
+ 1153  docker ps
+ 1154  docker kill acd54bc11706
+ 1155  redis-server
+ 1156  redis-cli -h 65.2.190.58 -p 3000
+ 1157  clear
+ 1158  clear &&  eksctl create cluster --name devss-cluster --version 1.27 --region ap-southeast-1 --nodegroup-name kafka-nodes --node-type t2.small --nodes 2
+ 1159  eksctl create cluster --name devsss-cluster --version 1.27 --region ap-southeast-1 --nodegroup-name kafka-nodes --node-type t2.small --nodes 2
+ 1160  kubectl get all
+ 1161  clear
+ 1162  ls
+ 1163  cd kafka-13-08-23/
+ 1164  clear
+ 1165  ls
+ 1166  cd strimzi-0.32.0/
+ 1167  ls
+ 1168  clear
+ 1169  sudo su
+ 1170  ls
+ 1171  sudo unzip 'kafka-3.5.1-src (1).tgz'
+ 1172  ls
+ 1173  rm *
+ 1174  https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1175  wget https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1176  ls
+ 1177  sudo unzip k
+ 1178  sudo unzip kafka-3.5.1-src.tgz
+ 1179  sudo tar -xvzf kafka-3.5.1-src.tgz
+ 1180  ls
+ 1181  rm kafka-3.5.1-src.tgz 
+ 1182  ls
+ 1183  cd kafka-3.5.1-src/
+ 1184  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1185  ./gradlew jar -PscalaVersion=2.13.10
+ 1186  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1187  wget https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1188  ls
+ 1189  ls
+ 1190  ./gradlew jar -PscalaVersion=2.13.10
+ 1191  cd /
+ 1192  mkdir kafka
+ 1193  ls
+ 1194  sudo mkdir kafka
+ 1195  cd kafka/
+ 1196  wget https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1197  sudo wget https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1198  ls
+ 1199  tar -xvzf kafka-3.5.1-src.tgz 
+ 1200  ls
+ 1201  sudo tar -xvzf kafka-3.5.1-src.tgz 
+ 1202  ls
+ 1203  cd kafka-3.5.1-src/
+ 1204  ls
+ 1205  ./gradlew jar -PscalaVersion=2.13.10
+ 1206  sudo ./gradlew jar -PscalaVersion=2.13.10
+ 1207  ls
+ 1208  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1209  bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic nil_PF1_P1
+ 1210  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1211  kubectl get pods -A -n my-kafka-project
+ 1212  kubectl get events -A -n my-kafka-project
+ 1213  kubectl get all
+ 1214  kubectl get nodes
+ 1215  sudo sed -i '' 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1216  ls
+ 1217  cd kafka-13-08-23/
+ 1218  cd strimzi-0.32.0/
+ 1219  sudo sed -i '' 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1220  ls
+ 1221  sudo sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1222  clear
+ 1223  kubectl create ns my-kafka-project
+ 1224  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1225  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1226  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1227  kubectl create -f install/cluster-operator/ -n kafka
+ 1228  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1229  apiVersion: kafka.strimzi.io/v1beta2
+ 1230  kind: Kafka
+ 1231  metadata:
+ 1232    name: my-cluster
+ 1233  spec:
+ 1234    kafka:
+ 1235      replicas: 1
+ 1236      listeners:
+ 1237        - name: plain
+ 1238          port: 9092
+ 1239          type: internal
+ 1240          tls: false
+ 1241        - name: tls
+ 1242          port: 9093
+ 1243          type: internal
+ 1244          tls: true
+ 1245          authentication:
+ 1246            type: tls
+ 1247        - name: external
+ 1248          port: 9094
+ 1249          type: nodeport
+ 1250          tls: false
+ 1251      storage:
+ 1252        type: jbod
+ 1253        volumes:
+ 1254        - id: 0
+ 1255          type: persistent-claim
+ 1256          size: 100Gi
+ 1257          deleteClaim: false
+ 1258      config:
+ 1259        offsets.topic.replication.factor: 1
+ 1260        transaction.state.log.replication.factor: 1
+ 1261        transaction.state.log.min.isr: 1
+ 1262        default.replication.factor: 1
+ 1263        min.insync.replicas: 1
+ 1264    zookeeper:
+ 1265      replicas: 1
+ 1266      storage:
+ 1267        type: persistent-claim
+ 1268        size: 100Gi
+ 1269        deleteClaim: false
+ 1270    entityOperator:
+ 1271      topicOperator: {}
+ 1272      userOperator: {}
+ 1273  EOF
+ 1274  kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n my-kafka-project
+ 1275  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1276  apiVersion: kafka.strimzi.io/v1beta2
+ 1277  kind: KafkaTopic
+ 1278  metadata:
+ 1279    name: my-topic
+ 1280    labels:
+ 1281      strimzi.io/cluster: "my-cluster"
+ 1282  spec:
+ 1283    partitions: 3
+ 1284    replicas: 1
+ 1285  EOF
+ 1286  kubectl get service my-cluster-kafka-external-bootstrap -n my-kafka-project -o=jsonpath='{.spec.ports[0].nodePort}{"\n"}'
+ 1287  kubectl get nodes --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address}{"\n"}{end}'
+ 1288  cd kafka-stuff/kafka-3.5.1-src/
+ 1289  ls
+ 1290  bin/kafka-console-consumer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic --from-beginning
+ 1291  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1292  apiVersion: kafka.strimzi.io/v1beta2
+ 1293  kind: KafkaTopic
+ 1294  metadata:
+ 1295    name: my-topic
+ 1296    labels:
+ 1297      strimzi.io/cluster: "my-cluster"
+ 1298  spec:
+ 1299    partitions: 3
+ 1300    replicas: 1
+ 1301  EOF
+ 1302  bin/kafka-console-consumer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic --from-beginning
+ 1303  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1304  kubectl get all -n my-kafka-project
+ 1305  kubectl get all my-kafka-project
+ 1306  kubectl get all -n my-kafka-project
+ 1307  kubectl get all -n kafka
+ 1308  kubectl get all -n my-kafka-project
+ 1309  kubectl get all -n kafka
+ 1310  kubectl get all -n my-kafka-project
+ 1311  ls
+ 1312  cd kafka-
+ 1313  cd kafka-13-08-23/
+ 1314  cd strimzi-0.32.0/
+ 1315  clear
+ 1316  kubectl create ns kafka
+ 1317  kubectl get nodes
+ 1318  sudo sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml 
+ 1319  kubectl create ns my-kafka-project
+ 1320  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1321  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1322  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1323  kubectl create -f install/cluster-operator/ -n kafka
+ 1324  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1325  apiVersion: kafka.strimzi.io/v1beta2
+ 1326  kind: Kafka
+ 1327  metadata:
+ 1328    name: my-cluster
+ 1329  spec:
+ 1330    kafka:
+ 1331      replicas: 1
+ 1332      listeners:
+ 1333        - name: plain
+ 1334          port: 9092
+ 1335          type: internal
+ 1336          tls: false
+ 1337        - name: tls
+ 1338          port: 9093
+ 1339          type: internal
+ 1340          tls: true
+ 1341          authentication:
+ 1342            type: tls
+ 1343        - name: external
+ 1344          port: 9094
+ 1345          type: nodeport
+ 1346          tls: false
+ 1347      storage:
+ 1348        type: jbod
+ 1349        volumes:
+ 1350        - id: 0
+ 1351          type: persistent-claim
+ 1352          size: 100Gi
+ 1353          deleteClaim: false
+ 1354      config:
+ 1355        offsets.topic.replication.factor: 1
+ 1356        transaction.state.log.replication.factor: 1
+ 1357        transaction.state.log.min.isr: 1
+ 1358        default.replication.factor: 1
+ 1359        min.insync.replicas: 1
+ 1360    zookeeper:
+ 1361      replicas: 1
+ 1362      storage:
+ 1363        type: persistent-claim
+ 1364        size: 100Gi
+ 1365        deleteClaim: false
+ 1366    entityOperator:
+ 1367      topicOperator: {}
+ 1368      userOperator: {}
+ 1369  EOF
+ 1370  kubectl get all -n kafka
+ 1371  kubectl describe pod/strimzi-cluster-operator-f4dd4664-69vql -n kafka
+ 1372  kubectl get all -n kafka
+ 1373  kubectl get all -n my-kafka-cluster
+ 1374  kubectl get all -n my-kafka-project
+ 1375  kubectl describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1376  kubectl get all -n my-kafka-project
+ 1377  kubectl describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1378  kubectl get pvc -n my-kafka-project
+ 1379  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1380  eksctl utils associate-iam-oidc-provider --region=ap-southeast-1 --cluster=devsss-cluster --approve
+ 1381  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1382  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1383  kubectl get pvc  -n my-kafka-project
+ 1384  kubectl get pods -n-n my-kafka-project
+ 1385  kubectl get pods -nmy-kafka-project
+ 1386  kubectl delete pod my-cluster-zookeeper-0  -nmy-kafka-project
+ 1387  kubectl describe pods my-cluster-zookeeper-0 -n my-kafka-project
+ 1388  kubectl get nodes
+ 1389  kubectl delete pod my-cluster-zookeeper-0  -nmy-kafka-project
+ 1390  kubectl get pvc  -n my-kafka-project
+ 1391  kubectl get nodes
+ 1392  kubectl get pod  -nmy-kafka-project
+ 1393  kubectl describe pod -n my-kafka-project
+ 1394  kubectl get pod  -nmy-kafka-project
+ 1395  kubectl get pvc  -nmy-kafka-project
+ 1396  kubectl delete pvc data-my-cluster-zookeeper-0  -nmy-kafka-project
+ 1397  kubectl delete pod my-cluster-zookeeper-0  -nmy-kafka-project
+ 1398  kubectl get pvc  -nmy-kafka-project
+ 1399  kubectl describe pod -n my-kafka-project
+ 1400  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1401  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster devsss-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole
+ 1402  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster devsss-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole --region ap-southeast-1
+ 1403  kubectl delete pvc data-my-cluster-zookeeper-0  -nmy-kafka-project
+ 1404  kubectl delete pod my-cluster-zookeeper-0  -nmy-kafka-project
+ 1405  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1406  kubectl describe pod -n my-kafka-project
+ 1407  kubectl get pods  -n my-kafka-project
+ 1408  kubectl describe pods my-cluster-zookeeper-0  -n my-kafka-project
+ 1409  kubectl get pods  -n my-kafka-project
+ 1410  kubectl get pvc  -n my-kafka-project
+ 1411  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1412  kubectl get pods  -n my-kafka-project
+ 1413  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1414  kubectl delete pod my-cluster-zookeeper-0  -nmy-kafka-project
+ 1415  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1416  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace my-kafka-cluster   --cluster devsss-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole --region ap-southeast-1
+ 1417  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace my-kafka-project   --cluster devsss-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole --region ap-southeast-1
+ 1418  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kafka   --cluster devsss-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole --region ap-southeast-1
+ 1419  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1420  eksctl create addon --name aws-ebs-csi-driver --region ap-southeast-1 --cluster devsss-cluster --service-account-role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/AmazonEKS_EBS_CSI_DriverRole --force
+ 1421  kubectl get pods -n my-kafka-project
+ 1422  kubectl describe pod my-cluster-kafka-0 -n my-kafka-project 
+ 1423  kubectl get pods -n my-kafka-project
+ 1424  kubectl describe pod my-cluster-kafka-0 -n my-kafka-project 
+ 1425  kubectl get pods -n my-kafka-project
+ 1426  ls
+ 1427  cd kafka-stuff/
+ 1428  ls
+ 1429  cd kafka-3.5.1-src/
+ 1430  ls
+ 1431  pwd
+ 1432  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1433  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1434  apiVersion: kafka.strimzi.io/v1beta2
+ 1435  kind: KafkaTopic
+ 1436  metadata:
+ 1437    name: my-topic
+ 1438    labels:
+ 1439      strimzi.io/cluster: "my-cluster"
+ 1440  spec:
+ 1441    partitions: 3
+ 1442    replicas: 1
+ 1443  EOF
+ 1444  kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n my-kafka-project
+ 1445  bin/kafka-console-producer.sh --bootstrap-server 13.229.93.172:32316 --topic my-topic
+ 1446  kubectl get pods -n my-kafka-project
+ 1447  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1448  apiVersion: kafka.strimzi.io/v1beta2
+ 1449  kind: Kafka
+ 1450  metadata:
+ 1451    name: my-cluster
+ 1452  spec:
+ 1453    kafka:
+ 1454      replicas: 1
+ 1455      listeners:
+ 1456        - name: plain
+ 1457          port: 9092
+ 1458          type: internal
+ 1459          tls: false
+ 1460        - name: tls
+ 1461          port: 9093
+ 1462          type: internal
+ 1463          tls: true
+ 1464          authentication:
+ 1465            type: tls
+ 1466        - name: external
+ 1467          port: 9094
+ 1468          type: nodeport
+ 1469          tls: false
+ 1470      storage:
+ 1471        type: jbod
+ 1472        volumes:
+ 1473        - id: 0
+ 1474          type: persistent-claim
+ 1475          size: 100Gi
+ 1476          deleteClaim: false
+ 1477      config:
+ 1478        offsets.topic.replication.factor: 1
+ 1479        transaction.state.log.replication.factor: 1
+ 1480        transaction.state.log.min.isr: 1
+ 1481        default.replication.factor: 1
+ 1482        min.insync.replicas: 1
+ 1483    zookeeper:
+ 1484      replicas: 1
+ 1485      storage:
+ 1486        type: persistent-claim
+ 1487        size: 100Gi
+ 1488        deleteClaim: false
+ 1489    entityOperator:
+ 1490      topicOperator: {}
+ 1491      userOperator: {}
+ 1492  EOF
+ 1493  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1494  apiVersion: kafka.strimzi.io/v1beta2
+ 1495  kind: KafkaTopic
+ 1496  metadata:
+ 1497    name: my-topic
+ 1498    labels:
+ 1499      strimzi.io/cluster: "my-cluster"
+ 1500  spec:
+ 1501    partitions: 3
+ 1502    replicas: 1
+ 1503  EOF
+ 1504  kubectl get service my-cluster-kafka-external-bootstrap -n my-kafka-project -o=jsonpath='{.spec.ports[0].nodePort}{"\n"}'
+ 1505  pushd .
+ 1506  ls
+ 1507  cd ..
+ 1508  ls
+ 1509  vi install/cluster-operator/060-Deployment-strimzi-cluster-operator.yaml
+ 1510  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1511  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1512  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1513  kubectl get all -n my-kafka-project kafkubectl
+ 1514  kubectl get all -n kafka
+ 1515  kubectl create -f install/cluster-operator/ -n kafka
+ 1516  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1517  apiVersion: kafka.strimzi.io/v1beta2
+ 1518  kind: Kafka
+ 1519  metadata:
+ 1520    name: my-cluster
+ 1521  spec:
+ 1522    kafka:
+ 1523      replicas: 1
+ 1524      listeners:
+ 1525        - name: plain
+ 1526          port: 9092
+ 1527          type: internal
+ 1528          tls: false
+ 1529        - name: tls
+ 1530          port: 9093
+ 1531          type: internal
+ 1532          tls: true
+ 1533          authentication:
+ 1534            type: tls
+ 1535        - name: external
+ 1536          port: 9094
+ 1537          type: nodeport
+ 1538          tls: false
+ 1539      storage:
+ 1540        type: jbod
+ 1541        volumes:
+ 1542        - id: 0
+ 1543          type: persistent-claim
+ 1544          size: 100Gi
+ 1545          deleteClaim: false
+ 1546      config:
+ 1547        offsets.topic.replication.factor: 1
+ 1548        transaction.state.log.replication.factor: 1
+ 1549        transaction.state.log.min.isr: 1
+ 1550        default.replication.factor: 1
+ 1551        min.insync.replicas: 1
+ 1552    zookeeper:
+ 1553      replicas: 1
+ 1554      storage:
+ 1555        type: persistent-claim
+ 1556        size: 100Gi
+ 1557        deleteClaim: false
+ 1558    entityOperator:
+ 1559      topicOperator: {}
+ 1560      userOperator: {}
+ 1561  EOF
+ 1562  kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n my-kafka-project
+ 1563  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1564  apiVersion: kafka.strimzi.io/v1beta2
+ 1565  kind: KafkaTopic
+ 1566  metadata:
+ 1567    name: my-topic
+ 1568    labels:
+ 1569      strimzi.io/cluster: "my-cluster"
+ 1570  spec:
+ 1571    partitions: 3
+ 1572    replicas: 1
+ 1573  EOF
+ 1574  kubectl get pvc -n my-kafka-project
+ 1575  kubectl get service my-cluster-kafka-external-bootstrap -n my-kafka-project -o=jsonpath='{.spec.ports[0].nodePort}{"\n"}'
+ 1576  kubectl get nodes --output=jsonpath='{range .items[*]}{.status.addresses[?(@.type=="InternalIP")].address}{"\n"}{end}'
+ 1577  kubectl get service my-cluster-kafka-external-bootstrap -n my-kafka-project -o=jsonpath='{.spec.ports[0].nodePort}{"\n"}'
+ 1578  sudo wget https://downloads.apache.org/kafka/3.5.1/kafka-3.5.1-src.tgz
+ 1579  kubectl get all
+ 1580  kubectl get nodes
+ 1581  kubectl get all -n my-kafka-project
+ 1582  kubectl describe deployment.apps/my-cluster-entity-operator -n my-kafka-project
+ 1583  kubectl get all -n my-kafka-project
+ 1584  kubectl describe pod/my-cluster-kafka-0 -n my-kafka-project
+ 1585  kubectl get all
+ 1586  kubectl get nodes
+ 1587  kubectl get all -n my-kafka-project
+ 1588  kubectl describe   CrashLoopBackOff
+ 1589  kubectl describe   pod/my-cluster-entity-operator-78cd6f88dd-9tv42
+ 1590  kubectl describe  pod/my-cluster-kafka-0 -n my-kafka-project
+ 1591  kubectl get pvc -n my-kafka-project
+ 1592  kubectl get pvc -n kafka
+ 1593  kubectl get pvc -n my-kafka-project
+ 1594  clear
+ 1595  ls
+ 1596  cd kafka-anshu-12-08-23/
+ 1597  ls
+ 1598  cd strimzi-0.32.0/q
+ 1599  cd ..
+ 1600  ls
+ 1601  cd kafka-13-08-23
+ 1602  ls
+ 1603  cd strimzi-0.32.0/
+ 1604  l
+ 1605  cd kafka-stuff/
+ 1606  ls
+ 1607  cd kafka-3.5.1-src/
+ 1608  ls
+ 1609  ./gradlew build
+ 1610  sudo ./gradlew build
+ 1611  clear
+ 1612  ls
+ 1613  cd ..
+ 1614  ls
+ 1615  cd ..
+ 1616  ls
+ 1617  pwd
+ 1618  clear
+ 1619  kubectl create ns kafka
+ 1620  sudo sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1621  kubectl create ns my-kafka-project
+ 1622  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1623  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1624  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1625  kubectl create -f install/cluster-operator/ -n kafka
+ 1626  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1627  apiVersion: kafka.strimzi.io/v1beta2
+ 1628  kind: Kafka
+ 1629  metadata:
+ 1630    name: my-cluster
+ 1631  spec:
+ 1632    kafka:
+ 1633      replicas: 1
+ 1634      listeners:
+ 1635        - name: plain
+ 1636          port: 9092
+ 1637          type: internal
+ 1638          tls: false
+ 1639        - name: tls
+ 1640          port: 9093
+ 1641          type: internal
+ 1642          tls: true
+ 1643          authentication:
+ 1644            type: tls
+ 1645        - name: external
+ 1646          port: 9094
+ 1647          type: nodeport
+ 1648          tls: false
+ 1649      storage:
+ 1650        type: jbod
+ 1651        volumes:
+ 1652        - id: 0
+ 1653          type: persistent-claim
+ 1654          size: 100Gi
+ 1655          deleteClaim: false
+ 1656      config:
+ 1657        offsets.topic.replication.factor: 1
+ 1658        transaction.state.log.replication.factor: 1
+ 1659        transaction.state.log.min.isr: 1
+ 1660        default.replication.factor: 1
+ 1661        min.insync.replicas: 1
+ 1662    zookeeper:
+ 1663      replicas: 1
+ 1664      storage:
+ 1665        type: persistent-claim
+ 1666        size: 100Gi
+ 1667        deleteClaim: false
+ 1668    entityOperator:
+ 1669      topicOperator: {}
+ 1670      userOperator: {}
+ 1671  EOF
+ 1672  clear
+ 1673  kubectl get all -n my-kafka-project
+ 1674  kubectl get all -n kafka
+ 1675  kubectl get all -n my-kafka-project
+ 1676  kubectl get describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1677  kubectl  describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1678  kubectl get all -n my-kafka-project
+ 1679  clear
+ 1680  kubectl get pvc -n my-kafka-project
+ 1681  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1682  eksctl utils associate-iam-oidc-provider --region=ap-southeast-1 --cluster=deveshs-cluster --approve
+ 1683  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster deveshs-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole   --region=ap-southeast-1
+ 1684  clear
+ 1685  ls
+ 1686  clear
+ 1687  kubectl get pvc
+ 1688  kubectl get pvc -n my-kafka-project
+ 1689  kubectl get pods -b
+ 1690  kubectl get pods -n
+ 1691  kubectl get pods -n my-kafka-project
+ 1692  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1693  clear
+ 1694  kubectl get pvc -n my-kafka-project
+ 1695  kubectl get pod -n my-kafka-project
+ 1696  kubectl get pvc -n my-kafka-project
+ 1697  kubectl get pod -n my-kafka-project
+ 1698  kubectl get pvc -n my-kafka-project
+ 1699  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1700  kubectl get pvc -n my-kafka-project
+ 1701  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1702  clear
+ 1703  kubectl get pvc
+ 1704  kubectl get pvc -n my-kafka-project
+ 1705  clear
+ 1706  kubectl get pod -n my-kafka-project
+ 1707  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1708  clear
+ 1709  kubectl get pods
+ 1710  kubectl get pods -n my-kafka-project
+ 1711  kubectl get pvc -n my-kafka-project
+ 1712  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1713  kubectl get pvc -n my-kafka-project
+ 1714  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1715  eksctl create addon --name aws-ebs-csi-driver --cluster deveshs-cluster  --region=ap-southeast-1 --service-account-role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/AmazonEKS_EBS_CSI_DriverRole --force
+ 1716  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1717  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1718  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1719  kubectl get pods -n my-kafka-project
+ 1720  clear
+ 1721  kubectl 
+ 1722   kubectl get all -n kafka kubectl get all -n kafka
+ 1723   kubectl get all -n kafka
+ 1724  kubectl get all -n kafka
+ 1725  kubectl describe pod strimzi-cluster-operator-f4dd4664-mrkpb -n kafka
+ 1726  kubectl get all -n kafka
+ 1727  kubectl get all -n my-kafka-project
+ 1728  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1729  kubectl get all -n my-kafka-project
+ 1730  kubectl get pvc -n my-kafka-project
+ 1731  kubectl describe pvc data-my-cluster-zookeeper-0
+ 1732  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1733  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1734  clear
+ 1735  kubectl get pods -n my-kafka-project
+ 1736  kubectl describe pods -n my-kafka-project
+ 1737  clear
+ 1738  kubectl get pods -n my-kafka-project
+ 1739  kubectl describe pods -n my-kafka-project
+ 1740  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1741  clear
+ 1742  clear && kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1743  clear
+ 1744  kubectl get pvc -n my-kafka-project
+ 1745  kubectl get all -n my-kafka-project
+ 1746  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1747  kubectl get pvc
+ 1748  clear
+ 1749  kubectl get all -n my-kafka-project
+ 1750  kubectl describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1751  kubectl get nodes
+ 1752  kubectl describe pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1753  clear
+ 1754  kubectl get all
+ 1755  kubectl get all -n my-kafka-project
+ 1756  kubectl get pvc -n my-kafka-project
+ 1757  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1758  kubectl delete pod pmy-cluster-zookeeper-0 -n my-kafka-project
+ 1759  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1760  clear
+ 1761  kubectl get pods
+ 1762  kubectl get pods -n my-kafka-project
+ 1763  kubectl describe pods -n my-kafka-project
+ 1764  clear
+ 1765  kubectl describe pods -n my-kafka-project
+ 1766  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1767  kubectl get pods -n my-kafka-project
+ 1768  kubectl delete pod my-cluster-zookeeper-0
+ 1769  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1770  kubectl get pods -n my-kafka-project
+ 1771  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1772  cleear
+ 1773  clear
+ 1774  eksctl create cluster --name devsn-cluster --version 1.27 --region ap-southeast-1 --nodegroup-name kafka-nodes --node-type t2.small --nodes 4
+ 1775  eksctl create cluster --name devsn-cluster --version 1.27 --region ap-southeast-2 --nodegroup-name kafka-nodes --node-type t2.small --nodes 4
+ 1776  kubectl get all
+ 1777  clear
+ 1778  ls
+ 1779  clear
+ 1780  kubectl create ns kafka
+ 1781  sudo sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1782  kubectl create ns my-kafka-project
+ 1783  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1784  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1785  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1786  kubectl create -f install/cluster-operator/ -n kafka
+ 1787  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1788  apiVersion: kafka.strimzi.io/v1beta2
+ 1789  kind: Kafka
+ 1790  metadata:
+ 1791    name: my-cluster
+ 1792  spec:
+ 1793    kafka:
+ 1794      replicas: 1
+ 1795      listeners:
+ 1796        - name: plain
+ 1797          port: 9092
+ 1798          type: internal
+ 1799          tls: false
+ 1800        - name: tls
+ 1801          port: 9093
+ 1802          type: internal
+ 1803          tls: true
+ 1804          authentication:
+ 1805            type: tls
+ 1806        - name: external
+ 1807          port: 9094
+ 1808          type: nodeport
+ 1809          tls: false
+ 1810      storage:
+ 1811        type: jbod
+ 1812        volumes:
+ 1813        - id: 0
+ 1814          type: persistent-claim
+ 1815          size: 100Gi
+ 1816          deleteClaim: false
+ 1817      config:
+ 1818        offsets.topic.replication.factor: 1
+ 1819        transaction.state.log.replication.factor: 1
+ 1820        transaction.state.log.min.isr: 1
+ 1821        default.replication.factor: 1
+ 1822        min.insync.replicas: 1
+ 1823    zookeeper:
+ 1824      replicas: 1
+ 1825      storage:
+ 1826        type: persistent-claim
+ 1827        size: 100Gi
+ 1828        deleteClaim: false
+ 1829    entityOperator:
+ 1830      topicOperator: {}
+ 1831      userOperator: {}
+ 1832  EOF
+ 1833  eksctl utils associate-iam-oidc-provider --region=ap-southeast-2 --cluster=devsn-cluster --approve
+ 1834  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster devsn-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole   --region=ap-southeast-2
+ 1835  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster devsn-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole   
+ 1836  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kube-system   --cluster devsn-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole   --region=ap-southeast-2
+ 1837  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kafka   --cluster devsn-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole  --region=ap-southeast-2
+ 1838  aws sts get-caller-identity --query Account --output text
+ 1839  eksctl create addon --name aws-ebs-csi-driver --cluster devsn-cluster --service-account-role-arn arn:aws:iam::104625624060:role/AmazonEKS_EBS_CSI_DriverRole --force --region=ap-southeast-2
+ 1840  eksctl create iamserviceaccount   --name ebs-csi-controller-sa   --namespace kafka   --cluster devsn-cluster   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy   --approve   --role-only   --role-name AmazonEKS_EBS_CSI_DriverRole  --region=ap-southeast-2
+ 1841  kubectl get pod
+ 1842  kubectl get pod -n my-kafka-project
+ 1843  kubectl describe pod -n my-kafka-project
+ 1844  kubectl delete pod -n my-kafka-project
+ 1845  kubectl delete pod  my-cluster-zookeeper-0 -n my-kafka-project
+ 1846  kubectl get pvc
+ 1847  kubectl get pvc -n my-kafka-project
+ 1848  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1849  kubectl delete pod  my-cluster-zookeeper-0 -n my-kafka-project
+ 1850  kubectl get pvc
+ 1851  kubectl get pvc -n my-kafka-project
+ 1852  kubectl get pods -n my-kafka-project
+ 1853  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1854  kubectl get pods
+ 1855  kubectl get nodes
+ 1856  kubectl describe node ip-192-168-21-24.ap-southeast-2.compute.internal
+ 1857  clear
+ 1858  kubectl get pods
+ 1859  kubectl get pods -n my-kafka-project
+ 1860  kubectl get pvc -n my-kafka-project
+ 1861  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project && kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1862  kubectl describe pod my-cluster-zookeeper-0
+ 1863  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1864  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1865  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1866  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1867  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1868  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1869  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1870  kubectl get pvc -n my-kafka-project
+ 1871  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1872  kubectl get pvc -n my-kafka-project
+ 1873  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1874  kubectl get pod -n my-kafka-project
+ 1875  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1876  kubectl get deployment =n
+ 1877  kubectl get deployment -n my-kafka-project
+ 1878  kubectl get all -n my-kafka-project
+ 1879  kubectl get deployment -n kafka
+ 1880  cat << EOF | kubectl create -n my-kafka-project -f -
+ 1881  apiVersion: kafka.strimzi.io/v1beta2
+ 1882  kind: Kafka
+ 1883  metadata:
+ 1884    name: my-cluster
+ 1885  spec:
+ 1886    kafka:
+ 1887      replicas: 1
+ 1888      listeners:
+ 1889        - name: plain
+ 1890          port: 9092
+ 1891          type: internal
+ 1892          tls: false
+ 1893        - name: tls
+ 1894          port: 9093
+ 1895          type: internal
+ 1896          tls: true
+ 1897          authentication:
+ 1898            type: tls
+ 1899        - name: external
+ 1900          port: 9094
+ 1901          type: nodeport
+ 1902          tls: false
+ 1903      storage:
+ 1904        type: jbod
+ 1905        volumes:
+ 1906        - id: 0
+ 1907          type: persistent-claim
+ 1908          size: 100Gi
+ 1909          deleteClaim: false
+ 1910      config:
+ 1911        offsets.topic.replication.factor: 1
+ 1912        transaction.state.log.replication.factor: 1
+ 1913        transaction.state.log.min.isr: 1
+ 1914        default.replication.factor: 1
+ 1915        min.insync.replicas: 1
+ 1916    zookeeper:
+ 1917      replicas: 1
+ 1918      storage:
+ 1919        type: persistent-claim
+ 1920        size: 100Gi
+ 1921        deleteClaim: false
+ 1922    entityOperator:
+ 1923      topicOperator: {}
+ 1924      userOperator: {}
+ 1925  EOF
+ 1926  kubectl create -f install/cluster-operator/ -n kafka
+ 1927  kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+ 1928  kubectl create -f install/cluster-operator/023-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1929  kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+ 1930  vi install/cluster-operator/060-Deployment-strimzi-cluster-operator.yaml
+ 1931  sudo sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+ 1932  kubectl get all -n my-kafka-project
+ 1933  kubectl delete pod/my-cluster-zookeeper-0 -n my-kafka-project
+ 1934  kubectl get pvc -n my-kafka-project
+ 1935  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1936  kubectl get pvc
+ 1937  kubectl get pvc -n my-kafka-project
+ 1938  kubectl describe pvc data-my-cluster-zookeeper-0
+ 1939  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1940  clear
+ 1941  kubectl get pods -n my-kafka-project
+ 1942  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1943  kubectl get pvc
+ 1944  kubectl get pvc -n my-kafka-project
+ 1945  kubectl delete pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1946  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1947  kubectl describe pod  my-cluster-zookeeper-0 -n my-kafka-project
+ 1948  kubectl delete pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1949  kubectl get pods -n my-kafka-project
+ 1950  kubectl describe pod my-cluster-zookeeper-0
+ 1951  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project\
+ 1952  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1953  kubectl get pods -n my-kafka-project
+ 1954  kubectl describe pod my-cluster-zookeeper-0 -n my-kafka-project
+ 1955  kubectl get pods -n my-kafka-project
+ 1956  kubectl get pvc -n my-kafka-project
+ 1957  kubectl describe pvc data-my-cluster-zookeeper-0 -n my-kafka-project
+ 1958  rails new my_rails_app --database=postgresql
+ 1959  git clone https://github.com/JetBrains/sample_rails_app.git
+ 1960  cd sample_rails_app
+ 1961  $ bundle install --without production
+ 1962  bundle install --without production
+ 1963  sudo apt install ruby-bundler
+ 1964  sudo bundle install --without production
+ 1965  sudo apt-get update
+ 1966  sudo apt-get install postgresql postgresql-contrib libpq-dev -y
+ 1967  clear
+ 1968  docker ps
+ 1969  docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-postgres
+ 1970  docker ps
+ 1971  pwd
+ 1972  ls
+ 1973  ps
+ 1974  ruby server
+ 1975  ls
+ 1976  rails server
+ 1977  rails server > server.log 2>&1
+ 1978  wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
+ 1979  sudo apt-get install apt-transport-https
+ 1980  echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list
+ 1981  sudo apt-get update && sudo apt-get install logstash -y
+ 1982  clear
+ 1983  sudo systemctl start logstash
+ 1984  sudo systemctl start logstash.service
+ 1985  service logstash.service
+ 1986  service logstash.service start
+ 1987  service logstash start
+ 1988  sudo apt-get install logstash
+ 1989  logstash
+ 1990  docker pull docker.elastic.co/logstash/logstash:8.9.1
+ 1991  wget https://artifacts.elastic.co/cosign.pub
+ 1992  cosign verify --key cosign.pub docker.elastic.co/logstash/logstash:8.9.1
+ 1993  docker ps
+ 1994  clear
+ 1995  wget https://artifacts.elastic.co/cosign.pub
+ 1996  cosign verify --key cosign.pub docker.elastic.co/logstash/logstash:8.9.1
+ 1997  sudo apt install cosign
+ 1998  pwd
+ 1999  bin/logstash
+ 2000  /bin/logstash 
+ 2001  java -version
+ 2002  ls
+ 2003  cd ..
+ 2004  ls
+ 2005  wget https://artifacts.elastic.co/downloads/logstash/logstash-8.9.1-linux-x86_64.tar.gz
+ 2006  sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-8.9.1-linux-x86_64.tar.gz
+ 2007  ls
+ 2008  ls -l
+ 2009  rm logstash-8.9.1-linux-x86_64.tar.gz
+ 2010  sudo tar -xvzf l
+ 2011  ls
+ 2012  mv logstash-8.9.1-linux-x86_64.tar.gz.1 logstash-8.9.1-linux-x86_64.tar.gz
+ 2013  sudo tar -xvzf logstash-8.9.1-linux-x86_64.tar.gz 
+ 2014  ls
+ 2015  rm logstash-8.9.1
+ 2016  rm -r logstash-8.9.1
+ 2017  ls
+ 2018  rm logstash-8.9.1-linux-x86_64.tar.gz 
+ 2019  ls
+ 2020  clear
+ 2021  cd logstash-8.9.1-linux-x86_64/
+ 2022  ls
+ 2023  cd logstash-8.9.1/
+ 2024  bin/logstash -e "input { stdin { } } output { stdout { } }"
+ 2025  pushd ../..
+ 2026  ls
+ 2027  popd
+ 2028  bin/logstash -f ../../my_rails_app/logstash-stuff/pipeline.conf 
+ 2029  bin/logstash -f ../../my_rails_app/logstash-stuff/pipeline.conf -r
+ 2030  docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+ 2031  docker run -d --name logstash -v /path/to/logstash_config:/usr/share/logstash/config -p 5044:5044 docker.elastic.co/logstash/logstash:7.14.0 -f /usr/share/logstash/config/logstash.conf
+ 2032  docker ps
+ 2033  docker ps -a
+ 2034  docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+ 2035  docker remove c8941390bb12
+ 2036  docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+ 2037  docker remove fd2b3db0a5bc
+ 2038  docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+ 2039  docker ps
+ 2040  docker ps -a
+ 2041  docker logs f93e4b9a50bb
+ 2042  pwd
+ 2043  ;s
+ 2044  ls
+ 2045  cd ..
+ 2046  ls
+ 2047  cd ..
+ 2048  ls
+ 2049  c dmy
+ 2050  cd my_rails_app/
+ 2051  ls
+ 2052  pwd
+ 2053  docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+ 2054  docker ps
+ 2055  docker ps -a
+ 2056  docker remove f93e4b9a50bb
+ 2057  docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+ 2058  docker ps
+ 2059  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /path/to/logstash.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2060  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2061  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2062  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0 
+ 2063  docker ps
+ 2064  docker ps -a
+ 2065  docker remove 
+ 2066  docker remove  7456f95079b1
+ 2067  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0 
+ 2068  docker ps
+ 2069  docker run --name kibana -d -p 5601:5601 --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:7.15.0
+ 2070  docker logs -f logstash
+ 2071  docker ps
+ 2072  docker volumes
+ 2073  docker pvc
+ 2074  docker ps
+ 2075  docker rm 1ef2c091ff62
+ 2076  docker stop 1ef2c091ff62
+ 2077  docker rm 1ef2c091ff62
+ 2078* docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstas
+ 2079  docker ps
+ 2080  docker volume ls
+ 2081  docker volumes
+ 2082  docker logs -f logstash
+ 2083  docker ps
+ 2084  pwd
+ 2085  docker start logstash
+ 2086  docker ps
+ 2087  docker logs -f logstash
+ 2088  docker ps
+ 2089  input {
+ 2090  docker logs -f logstash
+ 2091  docker ps
+ 2092  docker stop logstash
+ 2093  docker rm logstash
+ 2094  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2095  docker logs logstash
+ 2096  docker logs -f logstash
+ 2097  docker stop logstash
+ 2098  docker rm logstash stash
+ 2099  docker rm logstash 
+ 2100  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2101  docker logs -f logstash
+ 2102  ls
+ 2103  rails server > server.log 2>&1
+ 2104  rails server 
+ 2105  cat /var/lib/gems/2.7.0/gems/railties-7.0.7.2/lib/rails/app_loader.rb
+ 2106  cat /var/lib/gems/2.7.0/gems/railties-7.0.7.2/lib/rails/app_loader.rb | grep pwd
+ 2107  ls
+ 2108  bundle install
+ 2109  clear
+ 2110  ls
+ 2111  cd app
+ 2112  ls
+ 2113  rails server
+ 2114  docker ps
+ 2115  docker stop logstash
+ 2116  docker rm logstash
+ 2117  docker run --name logstash -d --link elasticsearch:elasticsearch -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/log:/logs -v /mnt/c/Users/Devesh/Downloads/ruby-project-stack/my_rails_app/logstash-stuff/pipeline.conf:/usr/share/logstash/pipeline/logstash.conf docker.elastic.co/logstash/logstash:7.15.0
+ 2118  docker log -f logstash
+ 2119  docker logs -f logstash
+ 2120  history > history.txt

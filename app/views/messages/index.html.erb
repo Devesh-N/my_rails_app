@@ -1,0 +1,17 @@
+<h1>Messages</h1>
+
+<% if @message %>
+  <p><%= @message %></p>
+<% end %>
+
+<h2>Enter a Number</h2>
+<%= form_tag('/messages/create', method: "post") do %>
+  <%= number_field_tag(:number) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<h2>Check a Number</h2>
+<%= form_tag('/messages/check_number', method: "post") do %>
+  <%= number_field_tag(:number_to_check) %>
+  <%= submit_tag("Check") %>
+<% end %>
