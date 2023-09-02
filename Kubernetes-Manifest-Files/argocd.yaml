@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devesh-rails-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Devesh-N/my_rails_app.git'
+    targetRevision: HEAD
+    path: kubernetes/  # Assuming that the Kubernetes manifests are in a folder named 'kubernetes'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devesh-rails-app-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -73,7 +73,7 @@ end
 source 'https://rubygems.org'
 
 # Gemfile
-gem 'ddtrace', require: 'ddtrace/auto_instrument'
+
 
 # config/initializers/datadog-tracer.rb
 

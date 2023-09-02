@@ -2,11 +2,12 @@ require 'redis'
 
 class MessagesController < ApplicationController
   def initialize
-    @redis = Redis.new(host: '13.235.133.213', port: 6379)
+    @redis = Redis.new(host: ENV['REDIS_HOST'] || 'localhost', port: ENV['REDIS_PORT'] || 6379)
   end
 
   def index
     @message = params[:message]
+
   end
 
   def create

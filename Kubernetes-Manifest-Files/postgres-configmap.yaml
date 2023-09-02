@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    CREATE DATABASE test;
+    \c test;
+    CREATE TABLE numbers (
+        number INTEGER NOT NULL
+    );

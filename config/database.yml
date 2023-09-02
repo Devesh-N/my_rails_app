@@ -1,9 +1,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 13.235.133.213
-  username: myuser
-  password: mypassword
+  host: <%= ENV['POSTGRES_SERVICE_HOST'] %>
+  port: <%= ENV['POSTGRES_SERVICE_PORT'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -25,8 +26,7 @@ external_database:
   encoding: unicode
   database: test
   pool: 5
-  host: 13.235.133.213
-  username: myuser
-  password: mypassword
-  port: 5432 # Default PostgreSQL port, change if yours is different
-
+  host: <%= ENV['POSTGRES_SERVICE_HOST'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  port: <%= ENV['POSTGRES_SERVICE_PORT'] %>
